@@ -1,9 +1,15 @@
 package br.com.teste.decorator;
 
 import br.com.teste.strategy.Orcamento;
-import br.com.teste.templatemethod.TemplateDeImpostoCondicional;
 
 public class ICPP extends TemplateDeImpostoCondicional {
+
+    public ICPP() {
+    }
+
+    public ICPP(final Imposto outroImposto) {
+        super(outroImposto);
+    }
 
     @Override
     public boolean deveUsarMaximaTaxacao(final Orcamento orcamento) {
@@ -12,11 +18,11 @@ public class ICPP extends TemplateDeImpostoCondicional {
 
     @Override
     public double minimaTaxacao(final Orcamento orcamento) {
-        return orcamento.getValor() * 0.05;
+        return orcamento.getValor() * 0.05 + calculoDoOutroImposto(orcamento);
     }
 
     @Override
     public double maximaTaxacao(final Orcamento orcamento) {
-        return orcamento.getValor() * 0.07;
+        return orcamento.getValor() * 0.07 + calculoDoOutroImposto(orcamento);
     }
 }

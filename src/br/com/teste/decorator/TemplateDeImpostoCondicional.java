@@ -4,6 +4,13 @@ import br.com.teste.strategy.Orcamento;
 
 public abstract class TemplateDeImpostoCondicional extends Imposto {
 
+    public TemplateDeImpostoCondicional() {
+    }
+
+    public TemplateDeImpostoCondicional(final Imposto outroImposto) {
+        super(outroImposto);
+    }
+
     @Override
     public final double calcula(final Orcamento orcamento) {
         if (this.deveUsarMaximaTaxacao(orcamento)) {
