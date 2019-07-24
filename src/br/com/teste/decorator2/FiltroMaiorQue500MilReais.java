@@ -1,4 +1,4 @@
-package br.com.teste.decorator;
+package br.com.teste.decorator2;
 
 import java.util.List;
 import java.util.stream.Collectors;
